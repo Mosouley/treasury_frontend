@@ -1,0 +1,153 @@
+
+<mat-nav-list
+  class="h-screen px-2 mx-auto space-y-2 overflow-y-scroll bg-[#6867be] font-monfont text-xl text-white shadow-2xl  transition-all duration-500 ease-in w-60  ">
+
+  <div class="h-fit bg-transparent  ">
+    <div class="border-3 border-gray-600">
+      <div class="flex items-center w-full p-0 pl-4 ">
+        <div class="flex items-center justify-center"><img src="/assets/img/logo.jpg" class="w-8"></div>
+        <div class="flex items-center ml-auto">
+          <div>
+            <button mat-icon-button="" mat-ripple-loader-uninitialized=""
+              mat-ripple-loader-class-name="mat-mdc-button-ripple"
+              class="mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base"
+              mat-ripple-loader-centered=""><span
+                class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span><span
+                class="absolute top-0 right-0 left-0 flex items-center justify-center h-3 ng-star-inserted"><span
+                  class="flex items-center justify-center shrink-0 min-w-4 h-4 px-1 ml-4 mt-2.5 rounded-full bg-teal-600 text-indigo-50 text-xs font-medium">
+                  3 </span></span>
+                  <mat-icon role="img" class="mat-icon notranslate mat-icon-no-color"
+                aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="bell"
+                data-mat-icon-namespace="heroicons_outline"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fit="" height="100%"
+                  width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0">
+                  </path>
+                </svg></mat-icon><span class="mat-mdc-focus-indicator"></span><span
+                class="mat-mdc-button-touch-target"></span></button><!---->
+              </div><!---->
+          <div>
+            <button mat-icon-button=""
+              class="mat-mdc-menu-trigger mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base"
+              mat-ripple-loader-uninitialized="" mat-ripple-loader-class-name="mat-mdc-button-ripple"
+              mat-ripple-loader-centered="" aria-haspopup="menu" aria-expanded="false"><span
+                class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span><span
+                class="relative"><!----><mat-icon role="img"
+                  class="mat-icon notranslate mat-icon-no-color ng-star-inserted" aria-hidden="true"
+                  data-mat-icon-type="svg" data-mat-icon-name="user-circle"
+                  data-mat-icon-namespace="heroicons_outline"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fit="" height="100%"
+                    width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
+                    </path>
+                  </svg></mat-icon><!----><span
+                  class="absolute right-0 bottom-0 w-2 h-2 rounded-full mr-px mb-px bg-green-500"></span></span><span
+                class="mat-mdc-focus-indicator"></span><span
+                class="mat-mdc-button-touch-target"></span></button><!----><mat-menu
+              class=""><!----></mat-menu><mat-menu
+              class="ng-star-inserted"><!----></mat-menu>
+                </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center w-full p-1 ">
+        <div class="relative w-16 h-16"><img alt="User avatar" class="w-full h-full rounded-full ng-star-inserted"
+            src="/assets/img/59.jpg">
+          </div>
+        <div class="flex flex-col items-center justify-center w-full mt-4">
+          <div class="w-full whitespace-nowrap text-ellipsis overflow-hidden text-center leading-normal font-medium">
+            Moh Trader </div>
+          <div
+            class="w-full mt-0.5 whitespace-nowrap text-ellipsis overflow-hidden text-center text-md leading-normal font-medium text-secondary">
+          </div>
+        </div>
+      </div><!---->
+    </div>
+  </div>
+
+
+  <ul *ngFor=" let link of links;let i=index; " (click)="link.action=!link.action;toggleSubMenu(i)"
+    class=" pl-4  hover:bg-[#9190dd] hover:rounded-md  focus-within:border-l-4 focus-within:border-l-red-400 focus-within:shadow-sm border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105 ">
+    <!-- border-gray-800 shadow-md hover:shodow-lg rounded-2xl cursor-pointer transition ease-in duration-500  transform hover:scale-105 -->
+
+    <a *ngIf="link.children && link.children.length >0 ;else elseBlock"
+      class="flex items-center p-1 pr-2 mr-1 text-sm text-center  align-middle transition-colors rounded-t-sm cursor-pointer align-center "
+      role="button">
+
+      <span aria-hidden="true" class="translate-x-0 text-sm ">
+        <mat-icon class=" scale-75 hover:text-white ">{{link.icon}}</mat-icon>
+      </span>
+      <span class="translate-x-0 pl-2">{{link.name}}
+      </span>
+      <span *ngIf="!!link.children && link.children.length >0" class=" ml-auto hover:text-white">
+        <!-- <svg
+          class="w-5 h-5 ml-1 -mr-1 font-semibold transition-transform transform scale-75 text-sellar-primary group-hover:rotate-180"
+          [ngClass]="{'rotate-180': link.action}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+          fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+            clip-rule="evenodd" />
+        </svg> -->
+        <mat-icon role="img"
+        class="mat-icon notranslate mat-icon-no-color " [ngClass]="{'rotate-90': link.action}" aria-hidden="true" data-mat-icon-type="svg"
+        data-mat-icon-name="chevron-right" data-mat-icon-namespace="heroicons_mini">
+        <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" fit=""
+          height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <path fill-rule="evenodd"
+            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+            clip-rule="evenodd"></path>
+        </svg></mat-icon>
+
+      </span>
+
+    </a>
+    <ul *ngIf="!!link.children && link.children.length >0 && currentSubMenuIndex === i"
+      class="align-middle  bg-transparent transition-transform duration-300 ease-out">
+
+      <li *ngFor="let sub of link.children; let j=index" matTooltip={{sub.name}} [matTooltipPosition]="'right'"
+        class="flex flex-row items-center align-baseline h-12 px-10 py-4 space-y-1 overflow-auto text-sm text-white   transition-transform duration-300 ease-out rounded cursor-pointer place-items-center justify-items-start text-ellipsis whitespace-nowrap focus-within:border-l-4 focus-within:red-600 focus-within:shadow-sm hover:bg-[#8584d3] group "
+        routerLink="{{link.children[j].url}}">
+
+        <span class=" translate-x-0 text-sm transition-transform duration-300 ">
+          <mat-icon>{{link.children[j].icon}}</mat-icon>
+        </span>
+
+        <span role="menuitem"
+          class="block p-2 text-sm text-white transition-colors duration-300 rounded-md hover:text-gray-700 translate-x-0 ease-in
+          after:transition-transform after:duration-500 after:ease-out after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:content-[''] after:group-hover:origin-bottom-left after:group-hover:scale-x-100">
+          {{ link.children[j].name }}
+        </span>
+      </li>
+
+    </ul>
+
+    <ng-template #elseBlock>
+      <li>
+        <a [routerLink]=[link.url]
+          class="flex items-center p-1 pr-2 mr-1 text-sm text-center  align-middle transition-colors rounded-t-sm cursor-pointer align-center "
+          role="button">
+          <span aria-hidden="true" class=" translate-x-0 pr-2 '">
+            <mat-icon class=" scale-75 hover:text-white ">{{link.icon}}</mat-icon>
+          </span>
+          <span class="translate-x-0 pl-2'">{{link.name}}
+          </span>
+        </a>
+      </li>
+
+    </ng-template>
+  </ul>
+
+
+  <div class="absolute bottom-0 flex p-0  text-white border-t max-h-10 w-60">
+    <button
+      class="flex items-center justify-center w-full px-4 py-2 space-x-1 font-medium tracking-wider bg-[#6267c0] border rounded-md border-sellar-primary focus:outline-none focus:ring">
+      <span
+        [ngClass]="isSidebarReduced ? ' items-center place-items-start left-0 ': 'translate-x-0 text-sm  text-white'">
+        <mat-icon class="scale-75 text-white bg-transparent ">logout</mat-icon>
+      </span>
+
+      <span [ngClass]="{'sm:hidden': isSidebarReduced }"> Logout </span>
+    </button>
+  </div>
+</mat-nav-list>
