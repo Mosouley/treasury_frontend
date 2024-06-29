@@ -4,13 +4,14 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from 'src/app/material/material.module';
+
 import { LayoutRoutingModule } from '../layout-routing.module';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { childRoutes } from '../child-routes';
 import { SideNavClosedComponent } from './side-nav-left/side-nav-closed/side-nav-closed.component';
 import { SideNavComponent } from './side-nav-left/side-nav/side-nav.component';
+import { MaterialModule } from '../../material/material.module';
 
 
 

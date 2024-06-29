@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './../../material/material.module';
 import { Component, OnInit } from '@angular/core';
-import { Card } from 'src/app/model/daily_rate';
-import { StatComponent } from 'src/app/treasuryapp/stat/stat.component';
-import { ChartComponent } from 'src/app/report/chart/chart.component';
+import { Card } from '../../model/daily_rate';
+import { ChartComponent } from '../../report/chart/chart.component';
+import { StatComponent } from '../../treasuryapp/stat/stat.component';
+
 
 @Component({
   selector: 'app-dashboard',

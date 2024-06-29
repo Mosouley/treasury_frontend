@@ -3,10 +3,11 @@ import { Component, Inject, Injectable, OnDestroy, OnInit, inject } from '@angul
 import { TradeFormComponent } from './trade-form.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataModel } from 'src/app/model/data.model';
-import { API_URLS } from 'src/app/shared/config/app.url.config';
+
 import { formatDate } from '@angular/common';
 import { ReportComponent } from '../../report/report-template/report.component';
+import { DataModel } from '../../model/data.model';
+import { API_URLS } from '../../shared/config/app.url.config';
 
 @Component({
     selector: 'app-tradesflow',

@@ -2,10 +2,10 @@ import { TradeComponent } from './trade.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Currency } from '../../model/currency';
+import { Customer } from '../../model/customer';
+import { Product } from '../../model/product';
 
-import { Currency } from 'src/app/model/currency';
-import { Customer } from 'src/app/model/customer';
-import { Product } from 'src/app/model/product';
 
 @Component({
     selector: 'app-fxblotter',

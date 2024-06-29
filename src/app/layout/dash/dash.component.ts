@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import { MaterialModule } from 'src/app/material/material.module';
-import { AnalyticsComponent } from 'src/app/report/analytics/analytics.component';
-import { PnlCcyComponent } from 'src/app/report/pnl-ccy/pnl-ccy.component';
-import { PnlSummaryComponent } from 'src/app/report/pnl-summary/pnl-summary.component';
-import { PositionCcyComponent } from 'src/app/report/position-ccy/position-ccy.component';
-import { RisksMetricsComponent } from 'src/app/report/risks-metrics/risks-metrics.component';
-import { BannerService } from 'src/app/shared/services/banner.service';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { SettingsComponent } from 'src/app/treasuryapp/config/settings/settings.component';
+
 import { SettingsPanelComponent } from '../settings-panel/settings-panel.component';
 import { BannerComponent } from './banner.component';
 import { RouterModule } from '@angular/router';
 import { SideNavComponent } from '../sidenav/side-nav-left/side-nav/side-nav.component';
 import { SideNavClosedComponent } from '../sidenav/side-nav-left/side-nav-closed/side-nav-closed.component';
+import { MaterialModule } from '../../material/material.module';
+import { AnalyticsComponent } from '../../report/analytics/analytics.component';
+import { PnlCcyComponent } from '../../report/pnl-ccy/pnl-ccy.component';
+import { PnlSummaryComponent } from '../../report/pnl-summary/pnl-summary.component';
+import { PositionCcyComponent } from '../../report/position-ccy/position-ccy.component';
+import { RisksMetricsComponent } from '../../report/risks-metrics/risks-metrics.component';
+import { BannerService } from '../../shared/services/banner.service';
+import { SettingsComponent } from '../../treasuryapp/config/settings/settings.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({

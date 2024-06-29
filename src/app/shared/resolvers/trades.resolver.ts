@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import { TradeService } from '../services/trade.service';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Trade } from 'src/app/model/trade';
+import { Trade } from '../../model/trade';
+
 
 
 @Injectable()

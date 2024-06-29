@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable, ReplaySubject, retry } from "rxjs";
 import { WebSocketSubject } from "rxjs/webSocket";
-import { webSocketMessage } from 'src/app/model/webSocketMessage';
+import { webSocketMessage } from "../../model/webSocketMessage";
+
 
 
 @Injectable()

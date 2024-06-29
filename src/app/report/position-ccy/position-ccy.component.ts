@@ -1,10 +1,12 @@
 import { Currency } from './../../model/currency';
 import { Component, OnInit } from '@angular/core';
-import { DataModel } from 'src/app/model/data.model';
-import { CurrenciesService } from 'src/app/shared/services/currencies.service';
-import { ReportComponent } from '../report-template/report.component';
-import { PositionsService } from 'src/app/shared/services/positions.service';
+
+
 import { CommonModule } from '@angular/common';
+import { CurrenciesService } from '../../shared/services/currencies.service';
+import { PositionsService } from '../../shared/services/positions.service';
+import { ReportComponent } from '../report-template/report.component';
+import { DataModel } from '../../model/data.model';
 
 @Component({
   selector: 'app-position-ccy',

@@ -8,7 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 import { FxflowsComponent } from './fxflows/fxflows.component';
 import { WalletsizingComponent } from './walletsizing/walletsizing.component';
 import { TradeComponent } from './fxblotter/trade.component';
-import { SettingsComponent } from './config/settings/settings.component';
 import { DataTableComponent } from './config/data-table/data-table.component';
 import { ImportFileComponent } from './config/import-file.component';
 import { TradesflowComponent } from './tradesflow/tradesflow.component';

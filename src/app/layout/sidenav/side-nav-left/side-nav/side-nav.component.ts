@@ -2,15 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { childRoutes } from 'src/app/layout/child-routes';
-import { MaterialModule } from 'src/app/material/material.module';
-import { MenuNode } from 'src/app/shared/menu-node';
+import { MaterialModule } from '../../../../material/material.module';
+import { childRoutes } from '../../../child-routes';
+import { MenuNode } from '../../../navbar/menu-node';
+
 
 
 @Component({
   selector: 'app-side-nav',
   standalone: true,
-  imports: [CommonModule, MaterialModule,
+  imports: [CommonModule,
+     MaterialModule,
     RouterModule],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css'

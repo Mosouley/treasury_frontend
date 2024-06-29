@@ -1,11 +1,12 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MaterialModule } from 'src/app/material/material.module';
-import { DataModel } from 'src/app/model/data.model';
-import { FilterComponent } from 'src/app/report/filter/filter.component';
-import { ReportComponent } from 'src/app/report/report-template/report.component';
-import { TradeService } from 'src/app/shared/services/trade.service';
+import { MaterialModule } from '../../material/material.module';
+import { DataModel } from '../../model/data.model';
+import { FilterComponent } from '../../report/filter/filter.component';
+import { ReportComponent } from '../../report/report-template/report.component';
+import { TradeService } from '../../shared/services/trade.service';
+
 
 @Component({
   selector: 'app-sales-by-period',

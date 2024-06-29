@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { childRoutes } from 'src/app/layout/child-routes';
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from '../../../../material/material.module';
+import { childRoutes } from '../../../child-routes';
+
 
 
 @Component({

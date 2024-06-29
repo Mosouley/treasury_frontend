@@ -1,4 +1,4 @@
-import { DailyRateService } from 'src/app/shared/services/dailyrates.service';
+
 // import { MatInputCommifiedDirective } from './../../shared/custom/mat-input-commified.directive';
 import { Currency } from './../../model/currency';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -7,8 +7,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/model/product';
-import { Customer } from 'src/app/model/customer';
+
 import { CurrencyPipe, DecimalPipe, NgFor, NgIf } from '@angular/common';
 // import { Pnl_Calculation } from 'src/app/shared/custom/trade-functions';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Customer } from '../../model/customer';
+import { Product } from '../../model/product';
+import { DailyRateService } from '../../shared/services/dailyrates.service';
 
 
 interface Option {
@@ -260,10 +262,10 @@ export class TradeComponent implements OnInit {
   get_Ccy_Rate(ccy: Currency): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       this.rate_service.get(ccy).subscribe(
-        rate => {
+        (rate:any) => {
           resolve(rate.rateLcy);
         },
-        error => {
+        (error:any) => {
           console.error('API call error:', error);
           reject(error);
         }

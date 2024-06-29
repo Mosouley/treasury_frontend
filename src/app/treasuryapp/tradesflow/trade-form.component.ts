@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit,ChangeDetectorRef } from '@angular/core';
 import {
   FormBuilder,
@@ -9,17 +10,17 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Currency } from 'src/app/model/currency';
-import { Customer } from 'src/app/model/customer';
-import { Product } from 'src/app/model/product';
-import { DailyRateService } from 'src/app/shared/services/dailyrates.service';
+import { MaterialModule } from '../../material/material.module';
+import { Currency } from '../../model/currency';
+import { Customer } from '../../model/customer';
+import { Dealer } from '../../model/dealer';
+import { Product } from '../../model/product';
+import { TradeStatus } from '../../model/trade';
+import { DailyRateService } from '../../shared/services/dailyrates.service';
+import { DealerService } from '../../shared/services/dealer.service';
+import { WebsocketService } from '../../shared/services/websocket.service';
 import { TradeComponent } from '../fxblotter/trade.component';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from 'src/app/material/material.module';
-import { TradeStatus } from 'src/app/model/trade';
-import { DealerService } from 'src/app/shared/services/dealer.service';
-import { Dealer } from 'src/app/model/dealer';
-import { WebsocketService } from 'src/app/shared/services/websocket.service';
+
 
 @Component({
   selector: 'app-trade-form',

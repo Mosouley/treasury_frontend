@@ -1,8 +1,10 @@
 import { Component, ComponentFactoryResolver, ElementRef, HostListener, OnInit, Type } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { BannerService } from 'src/app/shared/services/banner.service';
+
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from '../../material/material.module';
+import { BannerService } from '../../shared/services/banner.service';
+
 
 @Component({
   selector: 'app-banner',
