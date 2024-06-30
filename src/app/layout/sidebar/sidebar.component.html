@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside class="sidebar h-screen px-2 mx-auto bg-[#6867be]" >
   <header>
     <button
       type="button"
@@ -7,20 +7,20 @@
     >
       <i class="bx bx-menu"></i>
     </button>
-    <img src="/src/assets/logo.svg" />
+    <img src="/assets/img/logo.svg" />
   </header>
   <ul>
-    <li *ngFor="let item of menuItems">
+    <li *ngFor="let item of menuItems" routerLink="{{item.url}}">
       <button type="button" (click)="onClick($event, item)">
         <i [class]="item.icon"></i>
-        <p>{{ item.label }}</p>
+        <p>{{ item.name }}</p>
         <i class='bx bx-chevron-down' [ngClass]="{'rotate-90': item.active}"  *ngIf="item.subMenu"></i>
 
       </button>
       <div class="sub-menu" [style.height]="item.active ? item.subMenuHeight : '0px'">
         <ul>
-          <li *ngFor="let subItem of item.subMenu">
-            <button type="button">{{ subItem }}</button>
+          <li *ngFor="let subItem of item.subMenu" routerLink="{{subItem.url}}">
+            <button type="button">{{ subItem.name }}</button>
           </li>
         </ul>
       </div>
@@ -29,27 +29,4 @@
 </aside>
 
 
-<!-- <aside class="sidebar bg-black bg-opacity-40 backdrop-blur-lg fixed top-6 left-6 bottom-6 flex flex-col gap-2 w-64 rounded-2xl p-4 border border-white border-opacity-10 transition-all duration-300">
-  <header class="flex items-center h-18 pb-5 border-b border-white border-opacity-10">
-    <button type="button" class="sidebar-burger w-13" (click)="toggleSidebar()">
-      <i class="bx bx-menu"></i>
-    </button>
-    <img src="assets/logo.svg" class="h-6" />
-  </header>
-  <ul class="grid list-none p-0 m-0 w-full">
-    <li *ngFor="let item of menuItems">
-      <button type="button" class="flex gap-4 items-center h-12 w-full rounded-lg text-white text-opacity-95 p-4" [ngClass]="{'bg-black bg-opacity-30': item.active}" (click)="onClick($event,item)">
-        <i [class]="item.icon"></i>
-        <p class="flex-1">{{ item.label }}</p>
-        <i class="bx bx-chevron-down transition-transform duration-300" [ngClass]="{'rotate-90': item.active}" *ngIf="item.subMenu"></i>
-      </button>
-      <div class="sub-menu overflow-hidden transition-all duration-500" [ngStyle]="{'height': item.active ? item.subMenuHeight : '0px'}">
-        <ul class="absolute top-0 left-0 grid">
-          <li *ngFor="let subItem of item.subMenu">
-            <button type="button" class="pl-13">{{ subItem }}</button>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
-</aside> -->
+

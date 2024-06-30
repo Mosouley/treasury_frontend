@@ -16,6 +16,7 @@ import { RisksMetricsComponent } from '../../report/risks-metrics/risks-metrics.
 import { BannerService } from '../../shared/services/banner.service';
 import { SettingsComponent } from '../../treasuryapp/config/settings/settings.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 
 @Component({
@@ -26,6 +27,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
     MaterialModule,
     SideNavComponent,
     SideNavClosedComponent,
+    SidebarComponent,
     NavbarComponent,
     BannerComponent,
     SettingsComponent,

@@ -9,8 +9,6 @@ import { DealerService } from './services/dealer.service';
 import { ProductService } from './services/product.service';
 import { SegmentService } from './services/segment.service';
 import { CustomerService } from './services/customer.service';
-
-// import { MatInputCommifiedDirective } from './custom/mat-input-commified.directive';
 import { DailyRateService } from './services/dailyrates.service';
 import { ReportModule } from '../report/report.module';
 import { BannerService } from './services/banner.service';
@@ -19,6 +17,7 @@ import { PositionCcyComponent } from '../report/position-ccy/position-ccy.compon
 import { PnlCcyComponent } from '../report/pnl-ccy/pnl-ccy.component';
 import { RisksMetricsComponent } from '../report/risks-metrics/risks-metrics.component';
 import { AnalyticsComponent } from '../report/analytics/analytics.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -57,7 +56,9 @@ import { AnalyticsComponent } from '../report/analytics/analytics.component';
         DealerService,
         CustomerService,
         DailyRateService,
-        BannerService
+        BannerService,
+        HttpClient
+
     ]
 })
 export class SharedModule { }

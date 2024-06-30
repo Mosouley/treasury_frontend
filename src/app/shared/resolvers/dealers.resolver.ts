@@ -1,4 +1,3 @@
-import { CurrenciesService } from '../services/currencies.service';
 import {Injectable} from '@angular/core';
 
 

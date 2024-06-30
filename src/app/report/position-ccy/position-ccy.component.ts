@@ -1,7 +1,4 @@
-import { Currency } from './../../model/currency';
 import { Component, OnInit } from '@angular/core';
-
-
 import { CommonModule } from '@angular/common';
 import { CurrenciesService } from '../../shared/services/currencies.service';
 import { PositionsService } from '../../shared/services/positions.service';

@@ -1,7 +1,8 @@
-<div class="flex h-screen overflow-y-scroll bg-yellow-100 relative">
+<div class="flex h-screen overflow-y-scroll  relative " >
 
   <ng-container *ngIf="isSidebarOpen; else elseBlock">
-    <app-side-nav></app-side-nav>
+    <!-- <app-side-nav></app-side-nav> -->
+    <app-sidebar></app-sidebar>
   </ng-container>
 
 
@@ -85,9 +86,3 @@
   <app-banner></app-banner>
 
 </div>
-
-
-<!--   <app-sidenav (toggleSidebarReduce)="toggleSidebarReduce($event)" [isSidebarOpen]="isSidebarOpen"
-    [isSidebarReduced]="isSidebarReduced" [ngClass]="sidebarWidthClass()" [ngClass]="sidebarIconClass()"
-    [ngClass]="sidebarTransitionClass()">
-  </app-sidenav> -->

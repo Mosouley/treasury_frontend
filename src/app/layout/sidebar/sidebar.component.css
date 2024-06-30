@@ -1,17 +1,17 @@
 
-*{
+/* *{
   box-sizing: border-box;
-}
+} */
 
 body {
   margin: 0;
-  background-image: url("bg.jpg", );
+  background-image: url('/assets/img/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
   height: 100vh;
   font-family: "Euclid Circular A";
-  background-image: url('/assets/bg.jpg');
+
 }
 
 button {
@@ -23,7 +23,7 @@ button {
 }
 
 .sidebar {
-  position: fixed;
+  position: flex;
   top: 24px;
   left: 24px;
   bottom: 24px;
@@ -31,10 +31,10 @@ button {
   flex-direction: column;
   gap: 8px;
   width: 260px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   padding: 0 16px;
   border: 1px solid rgb(255 255 255 / 8%);
-  background: rgb(0 0 0 / 40%);
+  /* background: rgb(0 0 0 / 40%); */
   backdrop-filter: blur(20px);
   transition: width 0.4s;
 }

@@ -1,30 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { menuNodes } from '../menu-nodes';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  menuItems = [
-    { label: 'Home', icon: 'bx bx-home' },
-    { label: 'Dashboard', icon: 'bx bxs-dashboard' },
-    {
-      label: 'Settings', icon: 'bx bx-cog', subMenu: ['Display', 'Appearance', 'Preferences'], active: false, subMenuHeight: '0px'
-    },
-    {
-      label: 'Create', icon: 'bx bx-folder-plus', subMenu: ['Article', 'Document', 'Video', 'Presentation'], active: false, subMenuHeight: '0px'
-    },
-    {
-      label: 'Profile', icon: 'bx bx-user', subMenu: ['Avatar', 'Theme'], active: false, subMenuHeight: '0px'
-    },
-    { label: 'Notifications', icon: 'bx bx-bell' },
-    { label: 'Products', icon: 'bx bx-cart' },
-    { label: 'Account', icon: 'bx bx-lock' }
-  ];
+
+
+  menuItems = menuNodes;
 
   toggleSidebar() {
     // Logic to toggle sidebar
