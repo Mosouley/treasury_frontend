@@ -17,7 +17,6 @@ import { PositionCcyComponent } from '../report/position-ccy/position-ccy.compon
 import { PnlCcyComponent } from '../report/pnl-ccy/pnl-ccy.component';
 import { RisksMetricsComponent } from '../report/risks-metrics/risks-metrics.component';
 import { AnalyticsComponent } from '../report/analytics/analytics.component';
-import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,8 +32,6 @@ import { HttpClient } from '@angular/common/http';
         RisksMetricsComponent,
         AnalyticsComponent,
         PageNotFoundComponent,
-
-
     ],
     exports: [
         RouterModule,
@@ -57,7 +54,7 @@ import { HttpClient } from '@angular/common/http';
         CustomerService,
         DailyRateService,
         BannerService,
-        HttpClient
+
 
     ]
 })

@@ -1,13 +1,14 @@
+import { MaterialModule } from './../../material/material.module';
+import { SharedModule } from './../../shared/shared.module';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LogoutComponent } from './../logout/logout.component';
 import { UserLoginComponent } from './../user-login/user-login.component';
-
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { MenuNode } from './menu-node';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../material/material.module';
+
 
 
 
@@ -18,8 +19,8 @@ import { MaterialModule } from '../../material/material.module';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
     MaterialModule,
+    RouterModule
   ],
   styleUrls: ['./navbar.component.css']
 })
@@ -84,14 +85,14 @@ export class NavbarComponent implements OnInit  {
 
     constructor(
       public dialog: MatDialog,
-      private route: ActivatedRoute,
-      private router: Router
+      // @Inject(String) route: ActivatedRoute,
+      // @Inject(String) router: Router
     ) {
-      this.routeQueryParams$ = route.queryParams.subscribe(params => {
-        if (params['login']) {
-          this.loginOpen();
-        }
-      });
+      // this.routeQueryParams$ = route.queryParams.subscribe(params => {
+      //   if (params['login']) {
+      //     this.loginOpen();
+      //   }
+      // });
     }
 
     ngOnInit(): void {
@@ -119,7 +120,7 @@ export class NavbarComponent implements OnInit  {
         this.remember = result.remember
         console.log( 'User connected with ' + this.username + ' --- ' + this.password + ' + . ' + this.remember) ;
 
-        this.router.navigate(['.'], {relativeTo: this.route})
+        // router.navigate(['.'], {relativeTo: this.route})
        });
     }
 

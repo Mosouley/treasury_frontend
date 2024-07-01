@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { menuNodes } from '../menu-nodes';
 import { RouterModule } from '@angular/router';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,6 +25,8 @@ export class SidebarComponent {
       if (menuItem !== item) {
         menuItem.active = false;
         menuItem.subMenuHeight = '0px';
+        console.log(menuItem.url);
+
       }
     });
 

@@ -19,11 +19,10 @@ type AOA = any[][];
   standalone: true,
   imports: [
     CommonModule,
-    LayoutRoutingModule,
     MaterialModule,
-
     NavbarComponent,
-    ReportComponent
+    ReportComponent,
+   
   ],
 })
 export class SettingsComponent implements OnInit {

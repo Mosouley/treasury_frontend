@@ -1,22 +1,19 @@
+import { MaterialModule } from './../../material/material.module';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-
-import { SettingsPanelComponent } from '../settings-panel/settings-panel.component';
-import { BannerComponent } from './banner.component';
-import { RouterModule } from '@angular/router';
-import { SideNavComponent } from '../sidenav/side-nav-left/side-nav/side-nav.component';
-import { SideNavClosedComponent } from '../sidenav/side-nav-left/side-nav-closed/side-nav-closed.component';
-import { MaterialModule } from '../../material/material.module';
 import { AnalyticsComponent } from '../../report/analytics/analytics.component';
 import { PnlCcyComponent } from '../../report/pnl-ccy/pnl-ccy.component';
 import { PnlSummaryComponent } from '../../report/pnl-summary/pnl-summary.component';
 import { PositionCcyComponent } from '../../report/position-ccy/position-ccy.component';
 import { RisksMetricsComponent } from '../../report/risks-metrics/risks-metrics.component';
 import { BannerService } from '../../shared/services/banner.service';
-import { SettingsComponent } from '../../treasuryapp/config/settings/settings.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SideNavClosedComponent } from '../side-nav-closed/side-nav-closed.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { BannerComponent } from './banner.component';
+import { SettingsComponent } from '../../treasuryapp/config/settings/settings.component';
 
 
 @Component({
@@ -24,15 +21,13 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   standalone: true,
   imports: [
     CommonModule,
-    MaterialModule,
-    SideNavComponent,
-    SideNavClosedComponent,
+    RouterModule,
     SidebarComponent,
+    SideNavClosedComponent,
     NavbarComponent,
     BannerComponent,
     SettingsComponent,
-    SettingsPanelComponent,
-    RouterModule
+    MaterialModule
 
   ],
   templateUrl: './dash.component.html',
