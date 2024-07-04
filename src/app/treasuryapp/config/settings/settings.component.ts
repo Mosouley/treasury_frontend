@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { LayoutRoutingModule } from '../../../layout/layout-routing.module';
 import { NavbarComponent } from '../../../layout/navbar/navbar.component';
 import { MaterialModule } from '../../../material/material.module';
 import { ApiResponse } from '../../../model/daily_rate';
@@ -22,7 +21,7 @@ type AOA = any[][];
     MaterialModule,
     NavbarComponent,
     ReportComponent,
-   
+
   ],
 })
 export class SettingsComponent implements OnInit {

@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 import { catchError, map, tap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { WebsocketService } from '../../shared/services/websocket.service';
 
 
 // We have to supply the plotly.js module to the Angular
@@ -11,12 +12,12 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule,],
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.css'
 })
 export class ChartComponent implements AfterViewInit{
-
+url =''
   liveData$: any
 // Bar Chart
 graph1 = {
@@ -34,7 +35,7 @@ graph2 = {
   ],
   layout: {title: 'Some Data to Highlight'}
 };
-transactions$ = this.service.messages$.pipe(
+transactions$ = this.service.getMessages().pipe(
   map(rows => rows),
   catchError(error => { throw error }),
   tap({
@@ -48,33 +49,12 @@ transactions$ = this.service.messages$.pipe(
   })
 ).subscribe();
 
-constructor(private service: StreamService) {
+constructor(private service: WebsocketService) {
 }
 ngAfterViewInit() {
-  this.service.connect();
+  this.service.connect(this.url)
   }
 }
 
-// ngOnInit(): void {
 
-
-//   this.service.messages$.pipe(
-//     tap(data => console.log('Received data:', data)),
-//     catchError(error => {
-//       console.error('WebSocket error:', error);
-//       throw error;
-//     })
-//   ).subscribe({
-//     next: (data: any) => {
-//       // Handle the received data here
-//       console.log('i reached here');
-
-//       this.liveData$ = data;
-//       console.log('Updated live data:', this.liveData$);
-//     },
-//     complete: () => {
-//       console.log('WebSocket stream completed.');
-//     }
-//   });
-// }
 

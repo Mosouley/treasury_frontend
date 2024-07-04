@@ -10,7 +10,7 @@
     <img src="/assets/img/logo.svg" />
   </header>
   <ul>
-    <li *ngFor="let item of menuItems" routerLink="{{item.url}}">
+    <li *ngFor="let item of menuItems" >
       <button type="button" (click)="onClick($event, item)">
         <i [class]="item.icon"></i>
         <p>{{ item.name }}</p>
@@ -19,8 +19,8 @@
       </button>
       <div class="sub-menu" [style.height]="item.active ? item.subMenuHeight : '0px'">
         <ul>
-          <li *ngFor="let subItem of item.subMenu" routerLink="{{subItem.url}}">
-            <button type="button">{{ subItem.name }}</button>
+          <li *ngFor="let subItem of item.subMenu" >
+            <button type="button" routerLink={{subItem.url}} >{{ subItem.name }}</button>
           </li>
         </ul>
       </div>
