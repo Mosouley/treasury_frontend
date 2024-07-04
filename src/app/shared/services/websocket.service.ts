@@ -21,7 +21,7 @@ export class WebsocketService {
       )
       .subscribe({
         next: () => this.status.next(true),
-        error: (e) => {
+        error: (e: any) => {
           console.error('WebSocket reconnection error:', e)
           this.status.next(false)},
           complete:() => console.log('complete')
