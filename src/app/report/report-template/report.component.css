@@ -12,13 +12,13 @@
 
 .mat-mdc-table{
   background-color:#6867be;
-  display: table;
+  display: table
 }
 
 .mat-mdc-row {
   height: 20px;
   color: neutral-500;
-  white-space: nowrap;
+ 
   hover:border-[#6867be];
   hover:border-2;
   font-family: Quicksand;

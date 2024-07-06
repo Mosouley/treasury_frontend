@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
     templateUrl: './user-login.component.html',
     styleUrls: ['./user-login.component.css'],
     standalone: true,
-    imports: [MatDialogTitle, FormsModule, MatDialogContent, MatInputModule, MatDialogActions, MatDialogClose]
+    imports: [ FormsModule, MatInputModule,MatDialogModule]
 })
 export class UserLoginComponent {
 

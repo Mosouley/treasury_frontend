@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MaterialModule } from './../../material/material.module';
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../../model/daily_rate';
@@ -12,7 +12,8 @@ import { StatComponent } from '../../treasuryapp/stat/stat.component';
   imports: [StatComponent,
     MaterialModule,
      CommonModule,
-    ChartComponent
+    ChartComponent,
+    NgOptimizedImage
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

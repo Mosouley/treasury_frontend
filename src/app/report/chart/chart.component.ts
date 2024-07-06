@@ -35,7 +35,7 @@ graph2 = {
   ],
   layout: {title: 'Some Data to Highlight'}
 };
-transactions$ = this.service.getMessages().pipe(
+transactions$ = this.service.connect('').pipe(
   map(rows => rows),
   catchError(error => { throw error }),
   tap({

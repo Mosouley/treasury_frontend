@@ -280,16 +280,4 @@ export class TradeFormComponent implements OnInit {
   }
 
 }
-/*
-  const traded_amount = this.tradeForm.controls['amount1'].value;
-      const deal_rate = this.tradeForm.controls['deal_rate'].value;
-      const buySell = this.tradeForm.controls['buy_sell'].value
-      const isBuy = buySell === 'buy';
-      const amount1 = isBuy ?  traded_amount : -traded_amount;
-      const pnl = Pnl_Calculation.calculate_pnl(
-        traded_amount,
-        deal_rate,
-        this.syst_rate,
-        this.ccy2_rate
-      );
-*/
+

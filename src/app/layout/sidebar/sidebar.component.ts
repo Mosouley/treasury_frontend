@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { menuNodes } from '../menu-nodes';
 import { RouterModule } from '@angular/router';
-import { log } from 'node:console';
+import { MaterialModule } from '../../material/material.module';
+
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MaterialModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
@@ -35,5 +36,5 @@ export class SidebarComponent {
       item.active = true;
     }
   }
-  monClick(event: Event, item: any) {}
+
 }

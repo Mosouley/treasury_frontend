@@ -37,37 +37,17 @@ export class NavbarComponent implements OnInit  {
     links: MenuNode[] = [
       {
         name: 'User',
-        url: 'main',
+        url: 'home/login',
         icon: 'speed',
         action: false,
         expandable: true,
         children: [
           {
             name: 'Login',
-            url: 'profile',
+            url: 'home/login',
             icon: 'category',
             action: false,
-            expandable: true,
-            children: [
-              {
-                name: 'Tabs and Cards',
-                url: 'tabsandcards',
-                icon: 'contact_page',
-                action: false
-              },
-              {
-                name: 'Analytics',
-                url: 'analytics',
-                icon: 'contact_page',
-                action: false
-              },
-              {
-                name: 'Outlook',
-                url: 'outlook',
-                icon: 'fingerprint',
-                action: false
-              },
-            ]
+            expandable: true
           },
           {
             name: 'Register',
@@ -78,6 +58,12 @@ export class NavbarComponent implements OnInit  {
           }
         ]
       },
+      {
+        name: 'Office',
+        url: 'login',
+        icon: 'speed',
+        action: false,
+        expandable: true,}
 
 
 
@@ -85,14 +71,9 @@ export class NavbarComponent implements OnInit  {
 
     constructor(
       public dialog: MatDialog,
-      // @Inject(String) route: ActivatedRoute,
-      // @Inject(String) router: Router
+
     ) {
-      // this.routeQueryParams$ = route.queryParams.subscribe(params => {
-      //   if (params['login']) {
-      //     this.loginOpen();
-      //   }
-      // });
+
     }
 
     ngOnInit(): void {
