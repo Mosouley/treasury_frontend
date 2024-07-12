@@ -9,7 +9,8 @@ module.exports = {
         Quicksand: "'Quicksand', 'sans-serif'",
         Lato: "'Lato'",
         monfont:
-        "Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji'"
+        "Inter var, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji'",
+        sideFont:'Euclid Circular A'
       },
       colors: {
         primary: "#7375de",

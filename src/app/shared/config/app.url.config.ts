@@ -22,15 +22,12 @@ export const API_URLS = {
     DEALERS_URL:   PATH + '/dealers/',
     TRADES_URL:  PATH + '/trades/',
     USER_URL:  PATH + '/auth/all',
-    SPENDINGS_URL:  PATH + '/spending',
-    COMPANY_URL:  PATH + '/company',
-    CASHBALANCE_URL:  PATH + '/cash',
-    PRODBALANCE_URL:  PATH + '/prodBalance',
     SINGNING_URL: PATH + '/auth/signin',
     SINGNUP_URL:  PATH + '/auth/signup',
     FILE_UPLOAD_URL: PATH + '/storage/upload',
     FILE_LOADING_URL: PATH + '/storage/files',
     FILE_LOADING_ALL: PATH + '/storage/getallfiles',
+    MODEL_METADATA_ALL: PATH + '/models-metadata/',
     WEBSOCKETS_TRADEFLOWS : WS_BASE + PORT +'/ws/api/fx/trade_update/'
 };
 

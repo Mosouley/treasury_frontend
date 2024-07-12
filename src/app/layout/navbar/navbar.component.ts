@@ -8,6 +8,9 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { MenuNode } from './menu-node';
 import { CommonModule } from '@angular/common';
+import { NavItem1Component } from './nav-item1/nav-item1.component';
+import { NavItem2Component } from './nav-item2/nav-item2.component';
+import { NavLoginComponent } from './nav-login/nav-login.component';
 
 
 
@@ -20,6 +23,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     MaterialModule,
+    NavItem1Component,
+    NavItem2Component,
+    NavLoginComponent,
     RouterModule
   ],
   styleUrls: ['./navbar.component.css']
@@ -57,13 +63,7 @@ export class NavbarComponent implements OnInit  {
             expandable: true,
           }
         ]
-      },
-      {
-        name: 'Office',
-        url: 'login',
-        icon: 'speed',
-        action: false,
-        expandable: true,}
+      }
 
 
 

@@ -1,0 +1,7 @@
+<div class="justify-center p-2">
+  <select (change)="selectModel($event)">
+    <option *ngFor="let elmt of models; let index i" value={{elmt.model}}>{{ elmt.model }}</option>
+  </select>
+
+  <app-generic [formConfig]="formElement" ></app-generic>
+</div>

@@ -8,7 +8,7 @@
         class="w-full min-w-fit text-sm text-center  divide-y divide-gray-200 border-2 content-center p-2 justify-center mx-auto">
         <ng-container *ngFor="let c of modelEntity" [matColumnDef]="c.columnName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> {{c.columnReference}}</th>
-          <td mat-cell *matCellDef="let item " [ngSwitch]="c.dataType" class="flex-1">
+          <td mat-cell *matCellDef="let item " [ngSwitch]="c.dataType" class="whitespace-nowrap">
             <ng-container *ngSwitchCase="'date'">
               {{ item[c.columnName] | date: 'shortDate' }}
             </ng-container>

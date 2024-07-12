@@ -18,6 +18,7 @@ import { SalesByPeriodComponent } from './sales-by-period/sales-by-period.compon
 import { DashboardComponent } from '../layout/dashboard/dashboard.component';
 import { UserLoginComponent } from '../layout/user-login/user-login.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DynamicModelComponent } from './config/dynamic-model/dynamic-model.component';
 
 const routes: Routes = [
 
@@ -49,7 +50,7 @@ const routes: Routes = [
      { path: 'walletsizing', component: WalletsizingComponent },
 
      { path: 'settings', component: SettingsComponent },
-     { path: 'position-update', component: UserLoginComponent },
+     { path: 'model-configuration', component: DynamicModelComponent },
      { path: 'sales-per-period',
      component: SalesByPeriodComponent,
     resolve: {

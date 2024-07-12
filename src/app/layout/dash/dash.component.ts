@@ -14,6 +14,7 @@ import { SideNavClosedComponent } from '../side-nav-closed/side-nav-closed.compo
 import { NavbarComponent } from '../navbar/navbar.component';
 import { BannerComponent } from './banner.component';
 import { SettingsComponent } from '../../treasuryapp/config/settings/settings.component';
+import { SettingsPanelComponent } from '../settings-panel/settings-panel.component';
 
 
 @Component({
@@ -26,7 +27,7 @@ import { SettingsComponent } from '../../treasuryapp/config/settings/settings.co
     SideNavClosedComponent,
     NavbarComponent,
     BannerComponent,
-    SettingsComponent,
+    SettingsPanelComponent,
     MaterialModule
 
   ],

@@ -1,0 +1,8 @@
+<!-- dynamic-form.component.html -->
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" class="border-2 border-red-300">
+  <div *ngFor="let field of formConfig">
+    <label class="border-2 border-red">{{ field.label }}</label>
+    <input [formControlName]="field.name" [type]="field.type">
+  </div>
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>

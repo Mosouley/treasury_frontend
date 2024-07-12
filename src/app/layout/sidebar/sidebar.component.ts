@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { menuNodes } from '../menu-nodes';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material/material.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule, MaterialModule],
+  imports: [CommonModule, RouterModule, MaterialModule, ProfileComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
