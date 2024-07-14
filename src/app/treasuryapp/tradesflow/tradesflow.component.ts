@@ -1,5 +1,5 @@
 import { WebsocketService } from './../../shared/services/websocket.service';
-import { Component, Inject, Injectable, OnDestroy, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, Inject, Injectable, OnDestroy, OnInit, inject } from '@angular/core';
 import { TradeFormComponent } from './trade-form.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,19 +8,24 @@ import { formatDate } from '@angular/common';
 import { ReportComponent } from '../../report/report-template/report.component';
 import { DataModel } from '../../model/data.model';
 import { API_URLS } from '../../shared/config/app.url.config';
+import { ReportContainerComponent } from '../../report/report-container/report-container.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
     selector: 'app-tradesflow',
     templateUrl: './tradesflow.component.html',
     styleUrls: ['./tradesflow.component.css'],
     standalone: true,
-    imports: [ReportComponent],
+    imports: [ReportComponent, 
+      ReportContainerComponent,
+      MatExpansionModule],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TradesflowComponent implements OnInit,OnDestroy {
 
   reportingData!: any[]  ;
   model: DataModel[] = [];
-
+  readonly panelOpenState = signal(false);
   reportName = 'FX Blotter  from '
   constructor(
      public  dialog: MatDialog,

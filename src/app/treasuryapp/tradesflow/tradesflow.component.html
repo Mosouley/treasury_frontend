@@ -1,4 +1,21 @@
-<section class="p-2 pt-1 mb-4 bg-white shadow-xl">
+<mat-accordion class="hover:bg-[#b1e3ea] border-green-500">
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" >
+    <mat-expansion-panel-header>
+      <!-- <mat-panel-title > Treasury FX Dashboard</mat-panel-title> -->
+      <mat-panel-description class="mt-1 ">
+        Treasury FX Dashboard
+        <p class="mt-2 text-sm text-neutral-500">
+          Manage your positions,revenues and risk metrics
+        </p>
+      </mat-panel-description>
+     
+    </mat-expansion-panel-header>
+  
+    <app-report-container></app-report-container>
+  </mat-expansion-panel>
+
+</mat-accordion>
+<!-- <section class="p-2 pt-1 mb-4 bg-white shadow-xl">
   <div class="flex flex-col items-center">
     <h2 class="mt-1 font-extrabold tracking-tight text-[#4946d7] text-xl">
       Treasury FX Dashboard
@@ -7,8 +24,8 @@
       Manage your positions,revenues and risk metrics
     </p>
   </div>
-
-</section>
+class="p-0.5 mb-0 bg-green-300 shadow-sm font-extrabold tracking-tight border-indigo-500 "
+</section> -->
 
 
 

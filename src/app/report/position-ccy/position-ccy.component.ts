@@ -1,3 +1,4 @@
+import { MaterialModule } from './../../material/material.module';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CurrenciesService } from '../../shared/services/currencies.service';
@@ -8,7 +9,7 @@ import { DataModel } from '../../model/data.model';
 @Component({
   selector: 'app-position-ccy',
   standalone: true,
-  imports: [ReportComponent, CommonModule],
+  imports: [ReportComponent, CommonModule, MaterialModule],
   templateUrl: './position-ccy.component.html',
   styleUrl: './position-ccy.component.css'
 })
@@ -17,6 +18,7 @@ export class PositionCcyComponent implements OnInit {
   reportingData!: any[]  ;
   model: DataModel[] = [];
   reportName = 'Position'
+  today = new Date()
   constructor(private ccyService: CurrenciesService,
     private positionServ: PositionsService
   ) {}
@@ -28,12 +30,13 @@ export class PositionCcyComponent implements OnInit {
     //   new DataModel('position.', 'Op. Position', 'number', false,  '`number:`1.2-2`'),
     //   new DataModel('position', 'Intraday', 'number', false, [], '`number:`1.2-2`'),]
     this.linkedHeaders()
+    this.fetchPositions()
   }
 
   loadAllCurrencies(): void {
     this.loadCurrenciesPage();
     this.reportingData = [...this.currencies]
-    this.fetchPositins()
+    this.fetchPositions()
   }
 
   loadCurrenciesPage(next?: string): void {
@@ -45,14 +48,28 @@ export class PositionCcyComponent implements OnInit {
          }
 
     });
-    // console.log(this.currencies);
+
 
   }
-  fetchPositins(){
+  fetchPositions(){
     this.positionServ.listByUrl().subscribe(data => {
-      console.log(data);
+      this.reportingData =  data.filter((model: any) => {
+        const txDate = new Date(model['date']);
+        // console.log(model['']);
+        
+        return (
+          txDate.setHours(0, 0, 0, 0) >= this.today.setHours(0, 0, 0, 0) &&
+          txDate.setHours(0, 0, 0, 0) <= this.today.setHours(0, 0, 0, 0)
+        );
+      });
 
     })
+    console.log(this.reportingData );
+    this.reportingData.forEach(model => {
+      console.log(model['ccy__code']);
+      
+    })
+    
   }
 
   linkedHeaders(){
@@ -61,7 +78,6 @@ export class PositionCcyComponent implements OnInit {
 
       return new DataModel(ccy.code, ccy.code, 'number', false, [], '`number:`1.2-2`')
     })
-    console.log(this.model);
 
   }
 }

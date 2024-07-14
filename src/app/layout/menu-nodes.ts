@@ -139,7 +139,7 @@ export const menuNodes = [
         subMenuHeight: '0px',
       },
       {
-        name: 'Model Configuration',
+        name: 'Model Config.',
         url: 'model-configuration',
         icon: 'bx bx-euro',
         active: false,

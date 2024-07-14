@@ -119,103 +119,11 @@ export class FilterComponent implements OnInit{
     {
       id: 6,
       name: 'Select a Range',
-      timePeriod: { startDay:  this.dateForm?.controls['start_date'].value,
-      endDay: this.dateForm?.controls['end_date'].value },
+      timePeriod: { startDay:  new Date(),
+      endDay: new Date()},
     },
   ];
 
-  // setPeriodIntervals(choix: number) {
-  //   console.log(choix);
-
-  //   const today = new Date();
-  //   switch (Number(choix)) {
-  //     case 1:
-  //       this.reportPeriod[0].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDate()
-  //       );
-  //       this.reportPeriod[0].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDate()
-  //       );
-
-  //       break;
-  //     case 2:
-  //       this.reportPeriod[1].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDate() - 7
-  //       );
-  //       this.reportPeriod[1].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDate()
-  //       );
-  //       break;
-
-  //     case 3:
-  //       this.reportPeriod[2].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         1
-  //       );
-  //       this.reportPeriod[2].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth() + 1,
-  //         0
-  //       );
-  //       break;
-  //     case 4:
-  //       this.reportPeriod[3].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth() - 2,
-  //         1
-  //       );
-  //       this.reportPeriod[3].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth() + 1,
-  //         0
-  //       );
-  //       break;
-  //     case 5:
-  //       this.reportPeriod[4].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         0,
-  //         1
-  //       );
-  //       this.reportPeriod[4].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         11,
-  //         31
-  //       );
-
-  //       break;
-  //     case 6:
-  //       this.setRange = true;
-  //       this.reportPeriod[5].timePeriod.startDay =
-  //         this.dateForm.controls['start_date'].value;
-  //       this.reportPeriod[5].timePeriod.endDay =
-  //         this.dateForm.controls['end_date'].value;
-  //       break;
-
-  //     default:
-  //       this.reportPeriod[0].timePeriod.startDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDay()
-  //       );
-  //       this.reportPeriod[0].timePeriod.endDay = new Date(
-  //         today.getFullYear(),
-  //         today.getMonth(),
-  //         today.getDay()
-  //       );
-
-  //       break;
-  //   }
-
-  // }
 
   getPeriod(event: any) {
     this.setRange = false;
@@ -225,7 +133,7 @@ export class FilterComponent implements OnInit{
     if (this.periodIndex == 6) {
       this.setRange = true;
     }
-
+ 
     this.selectedPeriod.emit(this.reportPeriod[this.periodIndex-1])
 
   }
@@ -235,10 +143,12 @@ export class FilterComponent implements OnInit{
 
     if (this.periodIndex > 0 && this.periodIndex !== 6) {
       this.isEnable = true;
-
+      console.log(this.periodIndex );
     } else {
       if (this.dateForm.valid) {
         this.isEnable = true;
+        console.log(this.dateForm);
+        
       } else {
         this.isEnable = false;
 

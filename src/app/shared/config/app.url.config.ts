@@ -14,6 +14,7 @@ const PATH = BASE + PORT + '/api/fx';
 export const API_URLS = {
     CURRENCIES_URL:  PATH + '/currencies/',
     POSITIONS_URL:  PATH + '/positions/',
+    POSITIONS_UPDATE_URL:  PATH + '/update_positions/',
     PRODUCTS_URL: PATH + '/products/',
     CUSTOMERS_URL:  PATH + '/customers/',
     SEGMENTS_URL:  PATH + '/segments/',

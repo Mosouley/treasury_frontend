@@ -140,7 +140,7 @@ export class SalesByPeriodComponent implements OnInit {
         txDate.setHours(0, 0, 0, 0) <= end.setHours(0, 0, 0, 0)
       );
     });
-    console.log(this.filteredData);
+   
 
   }
   setPeriod() {

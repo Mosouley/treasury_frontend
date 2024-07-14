@@ -11,7 +11,7 @@ import { GenericService } from '../../../shared/services/generic.service';
   styleUrl: './generic.component.css'
 })
 export class GenericComponent {
-  @Input() formConfig!: any[];
+  @Input() formConfig!:any;
   @Input() apiUrl!: string;
   form!: FormGroup;
 
@@ -25,7 +25,7 @@ export class GenericComponent {
   buildForm(): void {
     let formControls: any = {};
     if (this.formConfig) {
-      this.formConfig.forEach(field => {
+      this.formConfig.forEach((field:any) => {
         formControls[field.name] = ['', Validators.required];
       });
       this.form = this.fb.group(formControls);

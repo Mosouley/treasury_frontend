@@ -8,6 +8,7 @@ import { DataModel } from '../../../model/data.model';
 import { ReportComponent } from '../../../report/report-template/report.component';
 import { DailyRateService } from '../../../shared/services/dailyrates.service';
 import { ImportFileComponent } from '../import-file.component';
+import { PositionUpdateComponent } from './position-update/position-update.component';
 
 
 type AOA = any[][];
@@ -21,7 +22,7 @@ type AOA = any[][];
     MaterialModule,
     NavbarComponent,
     ReportComponent,
-
+    PositionUpdateComponent
   ],
 })
 export class SettingsComponent implements OnInit {
