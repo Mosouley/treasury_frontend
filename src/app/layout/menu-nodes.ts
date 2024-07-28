@@ -145,6 +145,13 @@ export const menuNodes = [
         active: false,
         subMenuHeight: '0px',
       },
+      {
+        name: 'Config. Entities',
+        url: 'entity-configuration',
+        icon: 'bx bx-euro',
+        active: false,
+        subMenuHeight: '0px',
+      }
     ],
   },
 ];

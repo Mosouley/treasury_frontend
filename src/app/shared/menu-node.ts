@@ -1,3 +1,4 @@
+
 export interface MenuNode {
   name: string;
   url?: string;
@@ -7,3 +8,5 @@ export interface MenuNode {
   level?: number;
   children?: MenuNode[];
 }
+
+

@@ -9,6 +9,7 @@ import { ReportComponent } from '../../../report/report-template/report.componen
 import { DailyRateService } from '../../../shared/services/dailyrates.service';
 import { ImportFileComponent } from '../import-file.component';
 import { PositionUpdateComponent } from './position-update/position-update.component';
+import { CustomerComponent } from "../../../shared/entities/customer/customer.component";
 
 
 type AOA = any[][];
@@ -22,8 +23,9 @@ type AOA = any[][];
     MaterialModule,
     NavbarComponent,
     ReportComponent,
-    PositionUpdateComponent
-  ],
+    PositionUpdateComponent,
+    CustomerComponent
+],
 })
 export class SettingsComponent implements OnInit {
   dataFetched!: ApiResponse;

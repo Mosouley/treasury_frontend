@@ -19,6 +19,8 @@ import { DashboardComponent } from '../layout/dashboard/dashboard.component';
 import { UserLoginComponent } from '../layout/user-login/user-login.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DynamicModelComponent } from './config/dynamic-model/dynamic-model.component';
+import { GenericComponent } from './config/generic/generic.component';
+import { CustomerComponent } from '../shared/entities/customer/customer.component';
 
 const routes: Routes = [
 
@@ -51,6 +53,7 @@ const routes: Routes = [
 
      { path: 'settings', component: SettingsComponent },
      { path: 'model-configuration', component: DynamicModelComponent },
+     { path: 'entity-configuration', component: CustomerComponent },
      { path: 'sales-per-period',
      component: SalesByPeriodComponent,
     resolve: {

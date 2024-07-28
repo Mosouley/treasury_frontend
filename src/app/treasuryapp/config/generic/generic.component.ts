@@ -1,48 +1,63 @@
+import { MaterialModule } from './../../../material/material.module';
+import { SampleComponent } from './../sample/sample.component';
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { GenericService } from '../../../shared/services/generic.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DataModel } from '../../../model/data.model';
+import { DataService } from '../../../shared/services/data.service';
+import { UploadTemplateComponent } from '../upload-template/upload-template.component';
 
 @Component({
   selector: 'app-generic',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule,
+     ReactiveFormsModule,
+     MaterialModule,
+    SampleComponent,
+    UploadTemplateComponent
+     ],
   templateUrl: './generic.component.html',
   styleUrl: './generic.component.css'
 })
 export class GenericComponent {
-  @Input() formConfig!:any;
-  @Input() apiUrl!: string;
-  form!: FormGroup;
+  crudType = 'sample';
 
-  constructor(private fb: FormBuilder, private dataService: GenericService<any>) {}
+  @Input()
+  data: any;
 
-  ngOnInit(): void {
+  @Input()
+  dataToLoad: any;
 
-    this.buildForm();
+  @Input()
+  arrayData: any;
+
+  @Input()
+  service!: DataService;
+
+  @Input()
+  title!: string;
+
+  @Input()
+  initItem: any;
+
+  @Input()
+  dataModelList!: DataModel[];
+  @Input()
+  arrayModelList!: DataModel[];
+  @Input()
+  enumElements = [];
+  @Input()
+  enumType:any;
+  @Input()
+  initForm!: FormGroup;
+
+  crudForm!: FormGroup;
+
+  operation = 'add';
+
+  selectedItem: any;
+
+  constructor(private fb: FormBuilder) {
   }
 
-  buildForm(): void {
-    let formControls: any = {};
-    if (this.formConfig) {
-      this.formConfig.forEach((field:any) => {
-        formControls[field.name] = ['', Validators.required];
-      });
-      this.form = this.fb.group(formControls);
-      
-    } else {
-      console.log('No form');
-      
-      
-    }
-    
-  }
-
-  onSubmit(): void {
-    if (this.form.valid) {
-      this.dataService.create(this.apiUrl, this.form.value).subscribe(response => {
-        console.log('Created:', response);
-      });
-    }
-  }
 }
