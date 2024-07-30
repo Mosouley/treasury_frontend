@@ -100,8 +100,8 @@ export class SettingsComponent implements OnInit {
 
   retrievRates() {
     this.daily.listAll().subscribe((response: any) => {
-      this.dataFetched = response.results
-      this.dataSize = response.count
+      this.dataFetched = response?.results?? []
+      this.dataSize = response?.count?? []
     });
 
   }

@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
   Validators,
-
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -21,16 +20,10 @@ import { DealerService } from '../../shared/services/dealer.service';
 import { WebsocketService } from '../../shared/services/websocket.service';
 import { TradeComponent } from '../fxblotter/trade.component';
 
-
 @Component({
   selector: 'app-trade-form',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
   templateUrl: './trade-form.component.html',
   styleUrl: './trade-form.component.css',
 })
@@ -82,74 +75,78 @@ export class TradeFormComponent implements OnInit {
     private cdRef: ChangeDetectorRef
   ) {}
   ngOnInit() {
-    this.currencies = this.receiveData['currencies']['results']; //
-    // console.info(this.receiveData.currencies.results);
-
-    this.products = this.receiveData['products']['results'];
-    this.customers = this.receiveData['customers']['results'];
-    // console.log(Date.now());
+    this.currencies = this.receiveData?.currencies?.results ?? [];
+    this.products = this.receiveData?.products?.results ?? [];
+    this.customers = this.receiveData?.customers?.results ?? [];
 
     this.initializeForm();
     // Subscribe to value changes for both currency inputs
 
     this.tradeForm.controls['ccy1'].valueChanges.subscribe({
-      next:(ccy: Currency) => {
+      next: (ccy: Currency) => {
         this.updateCurrenciesList(ccy);
-      this.retrieve_Ccy_Rate(ccy)
-        .then((rate) => {
-          this.ccy1_rate = rate
-        this.tradeForm.controls['ccy1_rate'].patchValue(Number(rate).toFixed(4));
-
-      })},
-      error: (e: any)  => console.error(e),
-      complete: () => console.info('Done', this.ccy1_rate )})
-      this.tradeForm.controls['ccy2'].valueChanges.subscribe({
-      next:(ccy: Currency) => {
-
-      this.retrieve_Ccy_Rate(ccy)
-        .then((rate) => {
-          this.ccy2_rate =  rate
-          this.tradeForm.controls['ccy2_rate'].patchValue(Number(rate).toFixed(4));
-
-      })},
-      error: (e: any)  => console.error(e),
-      complete: () => console.info('Done', this.ccy2_rate)})
-
+        this.retrieve_Ccy_Rate(ccy).then((rate) => {
+          this.ccy1_rate = rate;
+          this.tradeForm.controls['ccy1_rate'].patchValue(
+            Number(rate).toFixed(4)
+          );
+        });
+      },
+      error: (e: any) => console.error(e),
+      complete: () => console.info('Done', this.ccy1_rate),
+    });
+    this.tradeForm.controls['ccy2'].valueChanges.subscribe({
+      next: (ccy: Currency) => {
+        this.retrieve_Ccy_Rate(ccy).then((rate) => {
+          this.ccy2_rate = rate;
+          this.tradeForm.controls['ccy2_rate'].patchValue(
+            Number(rate).toFixed(4)
+          );
+        });
+      },
+      error: (e: any) => console.error(e),
+      complete: () => console.info('Done', this.ccy2_rate),
+    });
 
     this.tradeForm.controls['ccy2'].valueChanges.subscribe(
       this.createCcyPairOptions
     );
 
     // calculate amount2 based on value in amount1
-    this.tradeForm.controls['amount1'].valueChanges.subscribe((amount: string) => {
-      this.tradeForm.controls['amount2'].setValue(
-        parseFloat(amount) * this.tradeForm.controls['deal_rate'].value
-      );
-    });
-    this.tradeForm.controls['customer'].valueChanges.subscribe((customer: { name: string | undefined; }) => {
-      this.selectedCustomer = this.customers.find(
-        (elm) => elm.name === customer.name
-      ) as Customer;
-    });
-    this.tradeForm.controls['product'].valueChanges.subscribe((product: { name: string | undefined; }) => {
-      if (product) {
-        this.selectedProduct = this.products.find(
-          (elm) => elm.name === product.name
-        ) as Product;
+    this.tradeForm.controls['amount1'].valueChanges.subscribe(
+      (amount: string) => {
+        this.tradeForm.controls['amount2'].setValue(
+          parseFloat(amount) * this.tradeForm.controls['deal_rate'].value
+        );
       }
-    });
+    );
+    this.tradeForm.controls['customer'].valueChanges.subscribe(
+      (customer: { name: string | undefined }) => {
+        this.selectedCustomer = this.customers.find(
+          (elm) => elm.name === customer.name
+        ) as Customer;
+      }
+    );
+    this.tradeForm.controls['product'].valueChanges.subscribe(
+      (product: { name: string | undefined }) => {
+        if (product) {
+          this.selectedProduct = this.products.find(
+            (elm) => elm.name === product.name
+          ) as Product;
+        }
+      }
+    );
 
     // calculate amount2 based on value in amount1
-    this.tradeForm.controls['deal_rate'].valueChanges.subscribe((rate: number) => {
-
-      const amount1Value =this.tradeForm.controls['amount1'].value
-      const amount2 = rate * amount1Value;   //isBuy ? rate * amount1Value: -
-      this.tradeForm.controls['amount2'].patchValue(Number(amount2.toFixed(2)));
-
-
-
-
-    });
+    this.tradeForm.controls['deal_rate'].valueChanges.subscribe(
+      (rate: number) => {
+        const amount1Value = this.tradeForm.controls['amount1'].value;
+        const amount2 = rate * amount1Value; //isBuy ? rate * amount1Value: -
+        this.tradeForm.controls['amount2'].patchValue(
+          Number(amount2.toFixed(2))
+        );
+      }
+    );
 
     this.tradeForm.controls['ccy_pair'].valueChanges.subscribe(() => {
       this.syst_rate = this.get_system_rate(
@@ -202,7 +199,7 @@ export class TradeFormComponent implements OnInit {
   retrieve_Ccy_Rate(ccy: Currency): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       this.rate_service.get(ccy.code).subscribe(
-        (rate: { rateLcy: number | PromiseLike<number>; }) => {
+        (rate: { rateLcy: number | PromiseLike<number> }) => {
           resolve(rate.rateLcy);
         },
         (error: any) => {
@@ -242,22 +239,21 @@ export class TradeFormComponent implements OnInit {
       tx_comments: [''],
       system_rate: ['', Validators.required],
       status: [''],
-      trader: ['']
+      trader: [''],
     });
   }
 
   submitTradeForm() {
-      //temporary setting the dealer and
+    //temporary setting the dealer and
     //  this.tradeForm.controls['tx_comments'].patchValue('My comments')
-     this.tradeForm.controls['trader'].patchValue(this.dealer)
-      //   product: this.selectedProduct,
+    this.tradeForm.controls['trader'].patchValue(this.dealer);
+    //   product: this.selectedProduct,
     if (this.tradeForm.valid) {
-      this.tradeForm.controls['status'].patchValue(this.statusOptions[0].value)
-      this.ws.connect(this.URL)
-      .next({
+      this.tradeForm.controls['status'].patchValue(this.statusOptions[0].value);
+      this.ws.connect(this.URL).next({
         action: 'newTrade',
-        data: JSON.stringify(this.tradeForm.value)
-      })
+        data: JSON.stringify(this.tradeForm.value),
+      });
       // Close the dialog and pass the new trade data to the parent component
       this.dialogRef.close(this.tradeForm.value);
     }
@@ -270,14 +266,22 @@ export class TradeFormComponent implements OnInit {
     }
   }
 
-  shouldShowError(fieldName: string): boolean | null {
+  shouldShowError(fieldName: string): boolean {
+    if (!this.tradeForm) {
+      console.warn('Trade form is not initialized.');
+      return false;
+    }
+
     const control = this.tradeForm.get(fieldName);
-    return control && control.invalid && (control.dirty || control.touched);
+    if (!control) {
+      console.warn(`Form control '${fieldName}' does not exist.`);
+      return false;
+    }
+
+    return control.invalid && (control.dirty || control.touched);
   }
 
   displayCustomer(customer: any): string {
     return customer ? customer.name : '';
   }
-
 }
-
